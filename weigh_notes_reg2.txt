@@ -1,0 +1,56 @@
+model = baseRegressor(raw_data=df,feature_stop=265,target_column=267,
+                      regressor=True, existing_weights=[-2.00,2.00],
+                      features_to_use=wt,stoppage=10000000);
+model.fit(alpha=0.000000000001,target_error=0.001); # Best I could find for 268
+Records:
+-------
+-0.00541137835688 - error value (different from MSE)
+1042957 - iteration #
+-------
+-0.00386424745643
+1042958
+-------
+-0.00231711744732
+1042959
+-------
+-0.000769988341418
+1042960
+-------
+>>> $ Mean-Squared Error: 32949.6674082
+>>> $ Weights: [-1.5154249647977749, -0.4658704428256905, 0.5755427571060978, 
+-0.15317667314657546
+-0.8169468907741074, -0.672783099899059, 0.7129213849262589, -1.9560279150350122, 
+0.16589795039804528, 1.968889505888659, 0.0008509614986950035, -0.07786366815181583, 
+1.6887049199686828, -0.6597346761233809, 1.855776829571024, -0.9621285325356755, 
+1.2041239777120145, 1.3954944452879938]
+
+# Target Error Shrunk below
+model = baseRegressor(raw_data=df,feature_stop=265,target_column=267,
+                      regressor=True, existing_weights=[-0.10,0.10],
+                      features_to_use=wt,stoppage=10000000);
+model.fit(alpha=0.000000000001,target_error=0.00001); # Best I could find for 268
+>>> $ Mean-Squared Error:
+>>> $ Weights: [
+Canceled Early: 
+1145.49347992
+5037037
+-------
+1145.49347005
+5037038
+-------
+1145.49346019
+5037039
+-------
+1145.49345033
+5037040
+-------
+1145.49344046
+5037041
+-------
+
+
+wt = [12, 21, 25, 20, 11, 28, 27, 16, 26, 32, 13, 29, 2, 33, 1, 17, 30, 14]
+model = baseRegressor(raw_data=df,feature_stop=265,target_column=267,
+                      regressor=True, existing_weights=[-0.10,0.10],
+                      features_to_use=wt,stoppage=10000000);
+model.fit(alpha=0.0000000001,target_error=0.00001); # Best I could find for 268
